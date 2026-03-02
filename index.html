@@ -18,32 +18,48 @@
         color: #222;
     }
 
-    header {
-        background: #111827;
-        color: white;
-        padding: 40px 20px;
+    /* ===== 顶部横幅 ===== */
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        min-height: 400px;
+        background: url("top.png") center center / cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
+        color: white;
     }
 
-    header img {
-        width: 100px;
+    /* 遮罩层（让文字更清晰） */
+    .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
         margin-bottom: 20px;
     }
 
-    header h1 {
-        font-size: 36px;
-        margin-bottom: 15px;
-    }
-
-    header p {
-        font-size: 18px;
+    .hero p {
+        font-size: 20px;
         opacity: 0.9;
     }
 
     .btn {
         display: inline-block;
-        margin-top: 25px;
-        padding: 12px 28px;
+        margin-top: 30px;
+        padding: 14px 32px;
         background: #3b82f6;
         color: white;
         text-decoration: none;
@@ -102,13 +118,17 @@
         font-size: 14px;
     }
 
-    @media (max-width: 600px) {
-        header h1 {
-            font-size: 28px;
+    @media (max-width: 768px) {
+        .hero {
+            height: 60vh;
         }
 
-        section h2 {
-            font-size: 22px;
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        .hero p {
+            font-size: 16px;
         }
     }
 </style>
@@ -116,16 +136,14 @@
 </head>
 <body>
 
-<header>
-    <!-- 替换为你的应用LOGO -->
-    <img src="top.png" alt="Multiple App Logo">
-
-    <h1>Multiple App</h1>
-    <p>Run Multiple Accounts on One Android Device</p>
-
-    <!-- Google Play 链接 -->
-    <a href="#" class="btn">Download on Google Play</a>
-</header>
+<!-- ===== 横屏大图 ===== -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>Multiple App</h1>
+        <p>Run Multiple Accounts on One Android Device</p>
+        <a href="#" class="btn">Download on Google Play</a>
+    </div>
+</div>
 
 <section>
     <h2>About Multiple App</h2>
@@ -162,20 +180,11 @@
 
 <section>
     <h2>App Screenshots</h2>
-
     <div class="screenshots">
         <!-- 替换为你的截图 -->
         <img src="screenshot1.png" alt="Screenshot 1">
         <img src="screenshot2.png" alt="Screenshot 2">
     </div>
-</section>
-
-<section>
-    <h2>Why Choose Multiple App?</h2>
-    <p>
-        Perfect for users who manage multiple social, gaming, or business accounts.
-        Simple interface, stable performance, and easy setup.
-    </p>
 </section>
 
 <footer>
